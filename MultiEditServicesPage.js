@@ -103,25 +103,11 @@
 		methods: {
 			init: function(callback, scope) {
   				this.callParent(arguments);
-				this.on("change:Engineer", this.saveButtonVisible, this);
-				this.on("change:SupportLevel", this.saveButtonVisible, this);
   				console.log("selectedItems:", this.get("selectedItems"));
 			},
 			
 			onRender: function() {
   				
-			},
-			
-			onEngineerFilter: function (filter, list, callback, scope) {
-    			var esq = Ext.create("Terrasoft.EntitySchemaQuery", {
-        			rootSchemaName: "SysAdminUnit"
-    			});
-    			esq.addColumn("Id", "value");
-    			esq.addColumn("Name", "displayValue");
-    			list = Ext.create("Terrasoft.Collection");
-   	 			var filterGroup = Terrasoft.createFilterGroup();
-    			filterGroup.addItem(Terrasoft.createIsNotNullFilter("Name"));
-    			this.onListPrepare(filterGroup, filter, list, callback, scope);
 			},		
 			
 			onCloseButtonClick: function() {
